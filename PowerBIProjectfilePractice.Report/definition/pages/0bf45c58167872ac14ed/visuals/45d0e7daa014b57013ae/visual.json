@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "45d0e7daa014b57013ae",
   "position": {
-    "x": 21.333333333333332,
-    "y": 386.84444444444443,
-    "z": 1,
-    "height": 228.97777777777779,
-    "width": 917.33333333333337,
-    "tabOrder": 1
+    "x": 0,
+    "y": 491.22099591552967,
+    "z": 1000,
+    "height": 229.59242200399757,
+    "width": 916.589901798905,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "areaChart",
@@ -75,43 +75,49 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f5fa7e0335018b30c53d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dataset"
-              }
-            },
-            "Property": "Birthdate"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0728822e496e435642e6",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dataset"
-                  }
-                },
-                "Property": "Salary"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

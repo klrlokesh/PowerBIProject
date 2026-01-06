@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "d05e1e449d3944cb87c5",
   "position": {
-    "x": 21.333333333333332,
-    "y": 55.466666666666669,
+    "x": 21.35743460502303,
+    "y": 55.173372729642821,
     "z": 0,
-    "height": 284.44444444444446,
-    "width": 576,
+    "height": 366.635960719562,
+    "width": 576.65073433562179,
     "tabOrder": 0
   },
   "visual": {
@@ -80,12 +80,54 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Title updated'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "2de6b6f327497c981c21",
+        "name": "b858d5d3436c7024dace",
         "field": {
           "Column": {
             "Expression": {
@@ -99,7 +141,7 @@
         "type": "Categorical"
       },
       {
-        "name": "f50671e757011016b4ab",
+        "name": "81e6dfc6306e0570d89b",
         "field": {
           "Aggregation": {
             "Expression": {
