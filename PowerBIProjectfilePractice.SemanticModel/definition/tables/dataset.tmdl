@@ -1,0 +1,137 @@
+table dataset
+	lineageTag: ed8474b1-7c10-40c9-8c3f-101780a36141
+
+	column Employee_ID
+		dataType: string
+		lineageTag: 4dfa41c9-6289-4398-a1a0-f8ec80195500
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Name'
+		dataType: string
+		lineageTag: e56a40f8-6172-4ede-bc87-ed624ef4d22d
+		summarizeBy: none
+		sourceColumn: First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: b29831d6-fe28-4621-af9c-9ff8581d0edd
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 12b7ac4a-903a-4614-aa2f-25f8e1de1f3d
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: acdfbb66-a298-4321-984b-22391ff37a07
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 8438c0be-a6ed-40f3-becf-a1b2dfd11e26
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Education Level'
+		dataType: string
+		lineageTag: 99b157bc-22ff-4ae3-b799-01b647df3990
+		summarizeBy: none
+		sourceColumn: Education Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Birthdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 49e22859-d2b9-4410-ac72-bd49acd7e5a9
+		summarizeBy: none
+		sourceColumn: Birthdate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Hiredate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 94636b79-fc92-4eb8-af71-4750d25ed180
+		summarizeBy: none
+		sourceColumn: Hiredate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Termdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 11e290d9-68a1-4cbe-9cb6-79ca5a133ef9
+		summarizeBy: none
+		sourceColumn: Termdate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Department
+		dataType: string
+		lineageTag: 5462aaa3-73cd-49cf-8911-0770da14f016
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Title'
+		dataType: string
+		lineageTag: 1ef7b0ae-3311-4022-ad25-001f6afae86a
+		summarizeBy: none
+		sourceColumn: Job Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salary
+		dataType: int64
+		formatString: 0
+		lineageTag: 0aebf976-0a5e-4993-81c9-2b4c5e9d5efe
+		summarizeBy: sum
+		sourceColumn: Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Performance Rating'
+		dataType: string
+		lineageTag: a86bbcc7-d59c-4fdf-be22-a31c90f551ad
+		summarizeBy: none
+		sourceColumn: Performance Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dataset = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Lokesh\GitHub_VSCode\PowerBIProject\dataset.csv"),[Delimiter=";", Columns=14, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Employee_ID", type text}, {"First Name", type text}, {"Last Name", type text}, {"Gender", type text}, {"State", type text}, {"City", type text}, {"Education Level", type text}, {"Birthdate", type date}, {"Hiredate", type date}, {"Termdate", type date}, {"Department", type text}, {"Job Title", type text}, {"Salary", Int64.Type}, {"Performance Rating", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
